@@ -1,0 +1,70 @@
+@URL=http://localhost:7998
+
+# ------------------------------------------------------------------
+### echo (no auth)
+GET {{URL}}/api/v1/echo
+
+### echo with auth
+GET {{URL}}/api/v1/echo_auth
+Authorization: secret_shit
+
+
+# ------------------------------------------------------------------
+### send email
+POST {{URL}}/api/v1/send_email
+
+{
+  "name":         "Petr Petrov",
+  "email_phone":  "+123456789",
+  "request":      "Me also never gonna give you up!"
+}
+
+# crud --------------------------------------------------------------
+### all requests
+GET {{URL}}/api/v1/all_requests
+Content-Type: application/json
+Authorization: secret_shit
+
+### insert one
+POST {{URL}}/api/v1/request_insert
+Authorization: secret_shit
+Content-Type: application/json
+
+{
+  "name":         "test 2",
+  "email_phone":  "test 2 phone",
+  "request":      "test 2 request"  
+}
+
+### update
+POST {{URL}}/api/v1/request_update
+Authorization: secret_shit
+
+{
+  "id":           3,
+  "name":         "X",
+  "email_phone":  "Y",
+  "request":      "Z"  
+}
+
+### delete
+POST {{URL}}/api/v1/request_delete
+Authorization: secret_shit
+
+{
+  "id": 3
+}
+
+# validators ----------------------------------------
+### Name + EmailPhone
+POST {{URL}}/api/v1/check_name_emailphone
+Authorization: secret_shit
+
+{
+  "name":           "Ян Ёржан",
+  "email_phone":    "+7 123 112241"
+}
+
+# cucumber @mail .ru 
+# 8926 12312 344   // +7 123 112241
+
