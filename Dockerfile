@@ -8,8 +8,7 @@ RUN chmod +x ./app.bin
 
 FROM alpine:3.17
 COPY --from=build /app/app.bin /app.bin
-COPY ./.env /.env
-
-EXPOSE 7998
+#COPY ./.env /.env
+#EXPOSE 7998
 
 CMD ["/app.bin"]

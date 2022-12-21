@@ -12,6 +12,9 @@ static/
 # env files
 .env
 
+# docker compose
+docker-compose.yml
+
 # database files
 *.db
 
